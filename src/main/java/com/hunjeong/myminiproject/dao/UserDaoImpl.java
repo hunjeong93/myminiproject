@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int deleteUser(String id) throws Exception {
         int rowCnt = 0;
-        String sql = "DELETE FROM user_info WHERE id= ? ";
+        String sql = "DELETE FROM mini_user_info WHERE id= ? ";
 
         try (  // try-with-resources - since jdk7
                Connection conn = ds.getConnection();
@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User selectUser(String id) throws Exception {
         User user = null;
-        String sql = "SELECT * FROM user_info WHERE id= ? ";
+        String sql = "SELECT * FROM mini_user_info WHERE id= ? ";
 
         try (
                 Connection conn = ds.getConnection();
@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int insertUser(User user) throws Exception {
         int rowCnt = 0;
-        String sql = "INSERT INTO user_info VALUES (?,?,?,?,?,?, now()) ";
+        String sql = "INSERT INTO mini_user_info VALUES (?,?,?,?,?,?, now()) ";
 
         try(
                 Connection conn = ds.getConnection();
@@ -86,7 +86,7 @@ public class UserDaoImpl implements UserDao {
     public int updateUser(User user) throws Exception {
         int rowCnt = 0;
 
-        String sql = "UPDATE user_info " +
+        String sql = "UPDATE mini_user_info " +
                 "SET pwd = ?, name=?, email=?, birth =?, sns=?, reg_date=? " +
                 "WHERE id = ? ";
 
@@ -110,7 +110,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int count() throws Exception {
-        String sql = "SELECT count(*) FROM user_info ";
+        String sql = "SELECT count(*) FROM mini_user_info ";
 
         try(
                 Connection conn = ds.getConnection();
@@ -128,7 +128,7 @@ public class UserDaoImpl implements UserDao {
     public void deleteAll() throws Exception {
         try (Connection conn = ds.getConnection();)
         {
-            String sql = "DELETE FROM user_info ";
+            String sql = "DELETE FROM mini_user_info ";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
         }
