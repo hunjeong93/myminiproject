@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hunjeong.myminiproject.dao.RegisterMapper">
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM mini_user_info
+    </select>
+
+    <delete id="deleteAll">
+        DELETE FROM mini_user_info
+    </delete>
+
+    <insert id="insert" parameterType="UserDto">
+        INSERT INTO mini_user_info
+            (id, pwd, name, email, birth, sns, reg_date)
+        VALUES
+            (#{id}, #{pwd}, #{name}, #{email}, #{birth}, #{sns}, #{reg_date})
+    </insert>
+
+    <select id="selelctAll" resultType="UserDto">
+        SELECT *
+        FROM mini_user_info
+        ORDER BY reg_date DESC, id DESC
+    </select>
+
+</mapper>

@@ -11,7 +11,6 @@ import com.hunjeong.myminiproject.dao.*;
 import com.hunjeong.myminiproject.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,7 +70,7 @@ public class LoginController {
     }
 
     private boolean loginCheck(String id, String pwd) {
-        User user = null;
+        UserDto user = null;
 
         try {
             user = userDao.selectUser(id);

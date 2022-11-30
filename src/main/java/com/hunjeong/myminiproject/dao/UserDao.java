@@ -3,10 +3,17 @@ package com.hunjeong.myminiproject.dao;
 import com.hunjeong.myminiproject.domain.*;
 
 public interface UserDao {
-    User selectUser(String id) throws Exception;
-    int deleteUser(String id) throws Exception;
-    int insertUser(User user) throws Exception;
-    int updateUser(User user) throws Exception;
-    int count() throws Exception;
-    void deleteAll() throws Exception;
+    int deleteUser(String id, String pwd) throws Exception;
+
+    UserDto selectUser(String id) throws Exception;
+
+    int insertUser(UserDto dto) throws Exception;
+
+
+    int updateUser(UserDto user) throws Exception;
+
+
+    int countUser() throws Exception;
+
+    int deleteAll() throws Exception;
 }

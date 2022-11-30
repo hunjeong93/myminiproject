@@ -1,7 +1,7 @@
 package com.hunjeong.myminiproject.controller;
 
 import com.hunjeong.myminiproject.dao.UserDao;
-import com.hunjeong.myminiproject.domain.User;
+import com.hunjeong.myminiproject.domain.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class RegisterController {
     }
 
     @PostMapping("/add")
-    public String save(@Valid User user, BindingResult result, Model m) throws Exception {
+    public String save(@Valid UserDto user, BindingResult result, Model m) throws Exception {
         System.out.println("result="+result);
         System.out.println("user="+user);
 
@@ -57,7 +57,7 @@ public class RegisterController {
             return "registerForm";
     }
 
-    private boolean isValid(User user) {
+    private boolean isValid(UserDto user) {
         return true;
     }
 }
