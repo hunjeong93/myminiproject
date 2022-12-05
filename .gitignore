@@ -46,3 +46,4 @@ out/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+root-context.xml
