@@ -50,7 +50,7 @@ public class RegisterController {
             int rowCnt = userDao.insertUser(user);
 
             if (rowCnt != FAIL) {
-                return "registerInfo";
+                return "index";
             }
         }
 
